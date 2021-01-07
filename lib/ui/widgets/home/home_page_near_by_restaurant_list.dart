@@ -14,6 +14,7 @@ class HomePageNearByRestaurantList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Restaurant> restaurants = model.restaurants;
+    Size size = MediaQuery.of(context).size;
 
     return Container(
       height: 325,
@@ -48,10 +49,34 @@ class HomePageNearByRestaurantList extends StatelessWidget {
                 : isLast
                     ? const EdgeInsets.only(right: 10)
                     : null,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
+            child: Stack(
               children: [
-                restaurantInformation(restaurant: restaurant),
+                Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: restaurantInformation(restaurant: restaurant),
+                ),
+                Positioned(
+                  top: 0,
+                  right: size.width * 0.1,
+                  child: Container(
+                    height: 45,
+                    child: Icon(
+                      Icons.bookmark_border_outlined,
+                      color: Colors.grey,
+                    ),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(15),
+                        bottomRight: Radius.circular(15),
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
           );
