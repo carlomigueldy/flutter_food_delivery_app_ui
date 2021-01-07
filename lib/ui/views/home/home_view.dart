@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_architecture_starter/models/food.dart';
+import 'package:stacked_architecture_starter/models/food_category.dart';
+import 'package:stacked_architecture_starter/models/restaurant.dart';
 import 'package:stacked_architecture_starter/theme/box_shadow.dart';
 import 'package:stacked_architecture_starter/theme/colors.dart';
 
@@ -150,15 +153,19 @@ class HomePageNearByRestaurantList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Restaurant> restaurants = model.restaurants;
+
     return Container(
       height: 250,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        itemCount: model.nearByRestaurants.length,
+        itemCount: restaurants.length,
         separatorBuilder: (context, index) => SizedBox(width: 20),
         itemBuilder: (context, index) {
           bool isFirst = index == 0;
-          bool isLast = (model.nearByRestaurants.length - 1) == index;
+          bool isLast = (restaurants.length - 1) == index;
+          Restaurant restaurant = restaurants[index];
+
           return Container(
             width: 275,
             height: 250,
@@ -172,7 +179,7 @@ class HomePageNearByRestaurantList extends StatelessWidget {
                     ? const EdgeInsets.only(right: 10)
                     : null,
             child: Center(
-              child: Text('Hey'),
+              child: Text(restaurant.name),
             ),
           );
         },
@@ -191,15 +198,19 @@ class HomePageOrderAgainList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Food> foods = model.foods;
+
     return Container(
       height: 225,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        itemCount: model.nearByRestaurants.length,
+        itemCount: foods.length,
         separatorBuilder: (context, index) => SizedBox(width: 20),
         itemBuilder: (context, index) {
           bool isFirst = index == 0;
-          bool isLast = (model.nearByRestaurants.length - 1) == index;
+          bool isLast = (foods.length - 1) == index;
+          Food food = foods[index];
+
           return Container(
             width: 225,
             height: 225,
@@ -213,7 +224,7 @@ class HomePageOrderAgainList extends StatelessWidget {
                     ? const EdgeInsets.only(right: 10)
                     : null,
             child: Center(
-              child: Text('Hey'),
+              child: Text(food.name),
             ),
           );
         },
@@ -232,15 +243,18 @@ class HomePageCategoryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<FoodCategory> foodCategories = model.foodCategories;
+
     return Container(
       height: 100,
       child: ListView.separated(
-        itemCount: model.categories.length,
+        itemCount: foodCategories.length,
         scrollDirection: Axis.horizontal,
         separatorBuilder: (context, index) => SizedBox(width: 5),
         itemBuilder: (context, index) {
           bool isFirst = index == 0;
-          bool isLast = (model.categories.length - 1) == index;
+          bool isLast = (foodCategories.length - 1) == index;
+          FoodCategory foodCategory = foodCategories[index];
 
           return Container(
             height: 100,
@@ -255,7 +269,7 @@ class HomePageCategoryList extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
             child: Center(
-              child: Text('Hey'),
+              child: Text(foodCategory.name),
             ),
           );
         },
