@@ -10,6 +10,9 @@ import 'package:stacked_services/stacked_services.dart';
 
 import '../services/alert_service.dart';
 import '../services/api/authentication_service.dart';
+import '../services/api/food_category_service.dart';
+import '../services/api/food_service.dart';
+import '../services/api/restaurant_service.dart';
 import '../services/api/user_service.dart';
 import '../services/theme_service.dart';
 import '../services/third_party_services_module.dart';
@@ -27,8 +30,11 @@ void $initGetIt(GetIt g, {String environment}) {
   gh.lazySingleton<AuthenticationService>(() => AuthenticationService());
   gh.lazySingleton<DialogService>(() => thirdPartyServicesModule.dialogService);
   gh.lazySingleton<ExceptionHandler>(() => ExceptionHandler());
+  gh.lazySingleton<FoodCategoryService>(() => FoodCategoryService());
+  gh.lazySingleton<FoodService>(() => FoodService());
   gh.lazySingleton<NavigationService>(
       () => thirdPartyServicesModule.navigationService);
+  gh.lazySingleton<RestaurantService>(() => RestaurantService());
   gh.lazySingleton<SnackbarService>(
       () => thirdPartyServicesModule.snackbarService);
   gh.lazySingleton<ThemeService>(() => ThemeService());
