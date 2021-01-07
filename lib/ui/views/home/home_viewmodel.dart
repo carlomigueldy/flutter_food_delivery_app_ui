@@ -10,6 +10,9 @@ class HomeViewModel extends ReactiveViewModel {
 
   User get user => _authService.user;
 
+  List get categories => [1, 2, 3, 4, 5];
+  List get nearByRestaurants => [1, 2, 3, 4, 5, 6, 7];
+
   @override
   List<ReactiveServiceMixin> get reactiveServices => [_authService];
 

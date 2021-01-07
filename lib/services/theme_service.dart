@@ -58,7 +58,7 @@ class ThemeService with ReactiveServiceMixin {
     return ThemeData(
       primaryColor: getColor(type: ColorType.primary),
       accentColor: getColor(type: ColorType.accent),
-      primarySwatch: getColor(type: ColorType.primary),
+      // primarySwatch: getColor(type: ColorType.primary),
       fontFamily: fontFamily,
       brightness: Brightness.light,
       cardTheme: CardTheme(

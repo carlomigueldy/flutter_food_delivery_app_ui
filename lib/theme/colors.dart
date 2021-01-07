@@ -17,9 +17,9 @@ enum ColorType {
 getColor({ColorType type}) {
   switch (type) {
     case ColorType.primary:
-      return Colors.indigo;
+      return Colors.blue[700];
     case ColorType.secondary:
-      return Colors.grey[800];
+      return Colors.yellow[600];
     case ColorType.accent:
       return Colors.indigo[100];
     case ColorType.error:

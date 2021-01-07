@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_architecture_starter/ui/views/home/home_view.dart';
 
 import '../../../theme/shapes.dart' show shape;
 
@@ -30,6 +31,7 @@ class MainView extends StatelessWidget {
     @required MainViewModel model,
   }) {
     // final screenSize = MediaQuery.of(context).size;
+    return HomeView();
 
     if (model.menuType == MenuType.LOGIN) {
       return LoginView();
