@@ -22,7 +22,7 @@ class RestaurantService with ReactiveServiceMixin {
       Restaurant(
         id: 1,
         name: 'Restaurant A',
-        estimatedTimeOfDelivery: '15 - 20 minutes',
+        estimatedTimeOfDelivery: '15 - 20 mins',
         imageUrl: 'assets/restaurants/restaurant_1.jpg',
         rating: 5.0,
         categories: [
@@ -34,7 +34,7 @@ class RestaurantService with ReactiveServiceMixin {
       Restaurant(
         id: 2,
         name: 'Restaurant B',
-        estimatedTimeOfDelivery: '10 - 15 minutes',
+        estimatedTimeOfDelivery: '10 - 15 mins',
         imageUrl: 'assets/restaurants/restaurant_2.jpg',
         rating: 5.0,
         categories: [
@@ -46,7 +46,7 @@ class RestaurantService with ReactiveServiceMixin {
       Restaurant(
         id: 3,
         name: 'Restaurant C',
-        estimatedTimeOfDelivery: '5 - 10 minutes',
+        estimatedTimeOfDelivery: '5 - 10 mins',
         imageUrl: 'assets/restaurants/restaurant_3.jpg',
         rating: 5.0,
         categories: [
@@ -58,7 +58,7 @@ class RestaurantService with ReactiveServiceMixin {
       Restaurant(
         id: 4,
         name: 'Restaurant D',
-        estimatedTimeOfDelivery: '20 - 30 minutes',
+        estimatedTimeOfDelivery: '20 - 30 mins',
         imageUrl: 'assets/restaurants/restaurant_4.jpg',
         rating: 5.0,
         categories: [
@@ -70,7 +70,7 @@ class RestaurantService with ReactiveServiceMixin {
       Restaurant(
         id: 5,
         name: 'Restaurant E',
-        estimatedTimeOfDelivery: '5 - 20 minutes',
+        estimatedTimeOfDelivery: '5 - 20 mins',
         imageUrl: 'assets/restaurants/restaurant_5.jpg',
         rating: 5.0,
         categories: [
