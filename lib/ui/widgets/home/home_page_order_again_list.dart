@@ -38,7 +38,7 @@ class HomePageOrderAgainList extends StatelessWidget {
                 ),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.05),
+                  Colors.black.withOpacity(0.15),
                   BlendMode.srcOver,
                 ),
               ),
@@ -48,8 +48,44 @@ class HomePageOrderAgainList extends StatelessWidget {
                 : isLast
                     ? const EdgeInsets.only(right: 10)
                     : null,
-            child: Center(
-              child: Text(food.name),
+            child: Padding(
+              padding: const EdgeInsets.all(15),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.star,
+                        color: Colors.yellow[600],
+                        size: 30,
+                      ),
+                      SizedBox(width: 5),
+                      Text(
+                        food.rating.toString(),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                        ),
+                      )
+                    ],
+                  ),
+                  Flexible(
+                    child: Text(
+                      food.name,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 32,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           );
         },
