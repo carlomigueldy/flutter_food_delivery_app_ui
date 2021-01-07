@@ -16,6 +16,8 @@ import '../ui/views/foods/_foodId/food_detail_view.dart';
 import '../ui/views/foods/foods_view.dart';
 import '../ui/views/home/home_view.dart';
 import '../ui/views/main/main_view.dart';
+import '../ui/views/orders/order_detail/order_detail_view.dart';
+import '../ui/views/orders/orders_view.dart';
 import '../ui/views/payment_method/payment_method_view.dart';
 import '../ui/views/restaurants/_restaurantId/restaurant_detail_view.dart';
 import '../ui/views/restaurants/restaurants_view.dart';
@@ -45,6 +47,10 @@ class Routes {
   static const String _restaurantDetailView = '/restaurants/:restaurantId';
   static String restaurantDetailView({@required dynamic restaurantId}) =>
       '/restaurants/$restaurantId';
+  static const String ordersView = '/orders';
+  static const String _orderDetailView = '/orders/:orderId';
+  static String orderDetailView({@required dynamic orderId}) =>
+      '/orders/$orderId';
   static const all = <String>{
     splashView,
     mainView,
@@ -60,6 +66,8 @@ class Routes {
     _foodCategoryDetailView,
     restaurantsView,
     _restaurantDetailView,
+    ordersView,
+    _orderDetailView,
   };
 }
 
@@ -81,6 +89,8 @@ class Router extends RouterBase {
     RouteDef(Routes._foodCategoryDetailView, page: FoodCategoryDetailView),
     RouteDef(Routes.restaurantsView, page: RestaurantsView),
     RouteDef(Routes._restaurantDetailView, page: RestaurantDetailView),
+    RouteDef(Routes.ordersView, page: OrdersView),
+    RouteDef(Routes._orderDetailView, page: OrderDetailView),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -166,6 +176,18 @@ class Router extends RouterBase {
     RestaurantDetailView: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => RestaurantDetailView(),
+        settings: data,
+      );
+    },
+    OrdersView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => OrdersView(),
+        settings: data,
+      );
+    },
+    OrderDetailView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => OrderDetailView(),
         settings: data,
       );
     },

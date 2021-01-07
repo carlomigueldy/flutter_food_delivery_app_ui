@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:stacked_architecture_starter/ui/views/home/home_viewmodel.dart';
 
 import '../../../theme/colors.dart';
 
 class HomePageHeader extends StatelessWidget {
+  final HomeViewModel model;
+
   const HomePageHeader({
     Key key,
+    @required this.model,
   }) : super(key: key);
 
   @override
@@ -63,16 +67,19 @@ class HomePageHeader extends StatelessWidget {
               ),
             ),
             SizedBox(width: 10),
-            Container(
-              height: 40,
-              width: 40,
-              child: Icon(
-                Icons.add,
-                color: Colors.white,
-              ),
-              decoration: BoxDecoration(
-                color: getColor(type: ColorType.primary),
-                borderRadius: BorderRadius.circular(10),
+            GestureDetector(
+              onTap: () => model.navigateToPaymentMethodView(),
+              child: Container(
+                height: 40,
+                width: 40,
+                child: Icon(
+                  Icons.add,
+                  color: Colors.white,
+                ),
+                decoration: BoxDecoration(
+                  color: getColor(type: ColorType.primary),
+                  borderRadius: BorderRadius.circular(10),
+                ),
               ),
             )
           ]),

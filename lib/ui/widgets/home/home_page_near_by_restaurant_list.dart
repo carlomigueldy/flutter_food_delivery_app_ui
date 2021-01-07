@@ -27,60 +27,65 @@ class HomePageNearByRestaurantList extends StatelessWidget {
           bool isLast = (restaurants.length - 1) == index;
           Restaurant restaurant = restaurants[index];
 
-          return Container(
-            width: 300,
-            height: 250,
-            decoration: BoxDecoration(
-              color: Colors.blueGrey[50],
-              borderRadius: BorderRadius.circular(20.0),
-              image: DecorationImage(
-                image: AssetImage(
-                  restaurant.imageUrl,
-                ),
-                fit: BoxFit.cover,
-                colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.05),
-                  BlendMode.srcOver,
+          return GestureDetector(
+            onTap: () => model.navigateToRestaurantDetailView(
+              restaurantId: restaurant.id,
+            ),
+            child: Container(
+              width: 300,
+              height: 250,
+              decoration: BoxDecoration(
+                color: Colors.blueGrey[50],
+                borderRadius: BorderRadius.circular(20.0),
+                image: DecorationImage(
+                  image: AssetImage(
+                    restaurant.imageUrl,
+                  ),
+                  fit: BoxFit.cover,
+                  colorFilter: ColorFilter.mode(
+                    Colors.black.withOpacity(0.05),
+                    BlendMode.srcOver,
+                  ),
                 ),
               ),
-            ),
-            margin: isFirst
-                ? const EdgeInsets.only(left: 10)
-                : isLast
-                    ? const EdgeInsets.only(right: 10)
-                    : null,
-            child: Stack(
-              children: [
-                Positioned(
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  child: restaurantInformation(restaurant: restaurant),
-                ),
-                Positioned(
-                  top: 0,
-                  right: size.width * 0.1,
-                  child: Container(
-                    height: 45,
-                    child: Icon(
-                      restaurant.saved
-                          ? Icons.bookmark
-                          : Icons.bookmark_border_outlined,
-                      color:
-                          restaurant.saved ? Colors.yellow[600] : Colors.grey,
-                    ),
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(15),
-                        bottomRight: Radius.circular(15),
+              margin: isFirst
+                  ? const EdgeInsets.only(left: 10)
+                  : isLast
+                      ? const EdgeInsets.only(right: 10)
+                      : null,
+              child: Stack(
+                children: [
+                  Positioned(
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    child: restaurantInformation(restaurant: restaurant),
+                  ),
+                  Positioned(
+                    top: 0,
+                    right: size.width * 0.1,
+                    child: Container(
+                      height: 45,
+                      child: Icon(
+                        restaurant.saved
+                            ? Icons.bookmark
+                            : Icons.bookmark_border_outlined,
+                        color:
+                            restaurant.saved ? Colors.yellow[600] : Colors.grey,
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 5),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(15),
+                          bottomRight: Radius.circular(15),
+                        ),
                       ),
                     ),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           );
         },

@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route_annotations.dart';
+import 'package:stacked_architecture_starter/ui/views/orders/orders_routes.dart';
 
 // Views
 import '../ui/views/home/home_view.dart';
@@ -51,6 +52,7 @@ import '../ui/views/shopping_cart/shopping_cart_view.dart';
     ...foodsRoutes,
     ...foodCategoriesRoutes,
     ...restaurantsRoutes,
+    ...ordersRoutes,
   ],
 )
 class $Router {}

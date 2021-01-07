@@ -22,33 +22,16 @@ class HomeView extends StatelessWidget {
             unselectedItemColor: Colors.grey[800],
             showSelectedLabels: false,
             showUnselectedLabels: false,
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.dashboard_outlined),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.search_outlined),
-                label: 'Search',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_bag_outlined),
-                label: 'Cart',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.bookmark_outline),
-                label: 'Saved',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle_outlined),
-                label: 'Account',
-              ),
-            ],
+            currentIndex: 0,
+            onTap: (int value) => model.onTapNavigateToView(index: value),
+            items: model.bottomNavigationBarItems,
           ),
           body: SingleChildScrollView(
             child: Column(
               children: [
-                HomePageHeader(),
+                HomePageHeader(
+                  model: model,
+                ),
                 SizedBox(height: 30),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 10),
@@ -57,7 +40,7 @@ class HomeView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Morning Sophia',
+                        'Morning John Doe',
                         style: TextStyle(
                           fontSize: 32,
                           fontWeight: FontWeight.bold,
