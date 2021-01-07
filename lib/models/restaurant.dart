@@ -8,6 +8,7 @@ part 'restaurant.g.dart';
   fieldRename: FieldRename.snake,
 )
 class Restaurant {
+  final int id;
   final String name;
   final List<FoodCategory> categories;
   final String imageUrl;
@@ -15,6 +16,7 @@ class Restaurant {
   final String estimatedTimeOfDelivery;
 
   Restaurant({
+    this.id,
     this.name: "",
     this.categories,
     this.imageUrl,

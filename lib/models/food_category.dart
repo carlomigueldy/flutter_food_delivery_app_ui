@@ -7,10 +7,12 @@ part 'food_category.g.dart';
   fieldRename: FieldRename.snake,
 )
 class FoodCategory {
+  final int id;
   final String name;
   final String imageUrl;
 
   FoodCategory({
+    this.id,
     this.name: "",
     this.imageUrl,
   });
