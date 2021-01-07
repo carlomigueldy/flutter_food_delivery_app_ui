@@ -63,8 +63,11 @@ class HomePageNearByRestaurantList extends StatelessWidget {
                   child: Container(
                     height: 45,
                     child: Icon(
-                      Icons.bookmark_border_outlined,
-                      color: Colors.grey,
+                      restaurant.saved
+                          ? Icons.bookmark
+                          : Icons.bookmark_border_outlined,
+                      color:
+                          restaurant.saved ? Colors.yellow[600] : Colors.grey,
                     ),
                     padding:
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 5),

@@ -13,6 +13,7 @@ class Restaurant {
   final List<FoodCategory> categories;
   final String imageUrl;
   final double rating;
+  final bool saved;
   final String estimatedTimeOfDelivery;
 
   Restaurant({
@@ -21,6 +22,7 @@ class Restaurant {
     this.categories,
     this.imageUrl,
     this.rating,
+    this.saved,
     this.estimatedTimeOfDelivery,
   });
 

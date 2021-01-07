@@ -21,9 +21,10 @@ class RestaurantService with ReactiveServiceMixin {
     _restaurants.value = [
       Restaurant(
         id: 1,
-        name: 'Restaurant A',
+        name: "Carlo's Bistro",
         estimatedTimeOfDelivery: '15 - 20 mins',
         imageUrl: 'assets/restaurants/restaurant_1.jpg',
+        saved: true,
         rating: 5.0,
         categories: [
           _foodCategoryService.foodCategories[0],
@@ -33,9 +34,10 @@ class RestaurantService with ReactiveServiceMixin {
       ),
       Restaurant(
         id: 2,
-        name: 'Restaurant B',
+        name: "Miguelito's Pizzarreti",
         estimatedTimeOfDelivery: '10 - 15 mins',
         imageUrl: 'assets/restaurants/restaurant_2.jpg',
+        saved: false,
         rating: 5.0,
         categories: [
           _foodCategoryService.foodCategories[1],
@@ -45,9 +47,10 @@ class RestaurantService with ReactiveServiceMixin {
       ),
       Restaurant(
         id: 3,
-        name: 'Restaurant C',
+        name: "Marie's Kan-anan",
         estimatedTimeOfDelivery: '5 - 10 mins',
         imageUrl: 'assets/restaurants/restaurant_3.jpg',
+        saved: true,
         rating: 5.0,
         categories: [
           _foodCategoryService.foodCategories[4],
@@ -57,9 +60,10 @@ class RestaurantService with ReactiveServiceMixin {
       ),
       Restaurant(
         id: 4,
-        name: 'Restaurant D',
+        name: "Jamm's",
         estimatedTimeOfDelivery: '20 - 30 mins',
         imageUrl: 'assets/restaurants/restaurant_4.jpg',
+        saved: false,
         rating: 5.0,
         categories: [
           _foodCategoryService.foodCategories[2],
@@ -69,9 +73,10 @@ class RestaurantService with ReactiveServiceMixin {
       ),
       Restaurant(
         id: 5,
-        name: 'Restaurant E',
+        name: "The Shookt",
         estimatedTimeOfDelivery: '5 - 20 mins',
         imageUrl: 'assets/restaurants/restaurant_5.jpg',
+        saved: false,
         rating: 5.0,
         categories: [
           _foodCategoryService.foodCategories[1],

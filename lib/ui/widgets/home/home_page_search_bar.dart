@@ -45,7 +45,7 @@ class HomePageSearchBar extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
             ),
             child: Icon(
-              Icons.cloud_queue,
+              Icons.sort,
               color: Colors.black,
             ),
           ),
