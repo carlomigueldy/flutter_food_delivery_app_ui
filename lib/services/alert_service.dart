@@ -23,20 +23,25 @@ class AlertService {
   /// @return void
   void showSnackbar({
     @required String message,
+    Widget customMessage,
     SnackBarType type,
+    Color backgroundColor: Colors.black87,
+    FlatButton mainButton,
+    Widget customIcon,
+    EdgeInsetsGeometry margin,
   }) {
     _snackbarService.showCustomSnackBar(
       message: message,
-      icon: getIconByType(type),
-
-      // backgroundColor: Colors.white,
+      messageText: customMessage,
+      icon: customIcon != null ? customIcon : getIconByType(type),
+      backgroundColor: backgroundColor,
       // messageText: Text(
       //   message,
       //   style: TextStyle(color: Colors.black),
       // ),
-
-      // borderRadius: 15,
-      // margin: EdgeInsets.all(5),
+      mainButton: mainButton,
+      borderRadius: 10,
+      margin: margin != null ? margin : EdgeInsets.all(5),
       padding: EdgeInsets.symmetric(
         horizontal: 30,
         vertical: 20,

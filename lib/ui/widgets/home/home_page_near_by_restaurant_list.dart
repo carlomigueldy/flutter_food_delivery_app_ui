@@ -128,7 +128,7 @@ class HomePageNearByRestaurantList extends StatelessWidget {
                 ),
                 Flexible(
                   child: Text(
-                    ' | American, burger, Fast food',
+                    ' | ' + restaurant.categories.map((e) => e.name).join(', '),
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       color: Colors.grey,

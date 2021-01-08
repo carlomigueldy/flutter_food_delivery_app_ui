@@ -1,15 +1,21 @@
+import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:observable_ish/observable_ish.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_architecture_starter/services/api/base_service.dart';
+import 'package:stacked_architecture_starter/services/api/food_service.dart';
 
+import '../../app/utils/list.dart';
 import '../../app/locator.dart';
 import '../../models/restaurant.dart';
 import 'food_category_service.dart';
 
 @lazySingleton
-class RestaurantService with ReactiveServiceMixin {
+class RestaurantService extends BaseService<Restaurant>
+    with ReactiveServiceMixin {
   final FoodCategoryService _foodCategoryService =
       locator<FoodCategoryService>();
+  final FoodService _foodService = locator<FoodService>();
 
   RxValue<List<Restaurant>> _restaurants = RxValue<List<Restaurant>>(
     initial: [],
@@ -31,6 +37,7 @@ class RestaurantService with ReactiveServiceMixin {
           _foodCategoryService.foodCategories[1],
           _foodCategoryService.foodCategories[2],
         ],
+        foods: shuffle(_foodService.foods),
       ),
       Restaurant(
         id: 2,
@@ -44,6 +51,7 @@ class RestaurantService with ReactiveServiceMixin {
           _foodCategoryService.foodCategories[2],
           _foodCategoryService.foodCategories[3],
         ],
+        foods: shuffle(_foodService.foods),
       ),
       Restaurant(
         id: 3,
@@ -57,10 +65,11 @@ class RestaurantService with ReactiveServiceMixin {
           _foodCategoryService.foodCategories[5],
           _foodCategoryService.foodCategories[2],
         ],
+        foods: shuffle(_foodService.foods),
       ),
       Restaurant(
         id: 4,
-        name: "Jamm's",
+        name: "Jamm Dog's",
         estimatedTimeOfDelivery: '20 - 30 mins',
         imageUrl: 'assets/restaurants/restaurant_4.jpg',
         saved: false,
@@ -70,6 +79,7 @@ class RestaurantService with ReactiveServiceMixin {
           _foodCategoryService.foodCategories[5],
           _foodCategoryService.foodCategories[1],
         ],
+        foods: shuffle(_foodService.foods),
       ),
       Restaurant(
         id: 5,
@@ -83,9 +93,52 @@ class RestaurantService with ReactiveServiceMixin {
           _foodCategoryService.foodCategories[5],
           _foodCategoryService.foodCategories[3],
         ],
+        foods: shuffle(_foodService.foods),
       ),
     ];
 
+    _restaurants.value = shuffle(_restaurants.value);
+
     listenToReactiveValues([_restaurants]);
+  }
+
+  @override
+  Future<List<Restaurant>> fetchAll() async {
+    return _restaurants.value;
+  }
+
+  @override
+  Future<Restaurant> fetchById({int id}) async {
+    return _restaurants.value.firstWhere((element) => element.id == id);
+  }
+
+  @override
+  Future<Restaurant> requestCreate({Restaurant model}) {
+    // TODO: implement requestCreate
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool> requestDeleteById({int id}) {
+    // TODO: implement requestDeleteById
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool> requestForceDeleteById({int id}) {
+    // TODO: implement requestForceDeleteById
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool> requestRestoreById({int id}) {
+    // TODO: implement requestRestoreById
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Restaurant> requestUpdate({Restaurant model, int id}) {
+    // TODO: implement requestUpdate
+    throw UnimplementedError();
   }
 }

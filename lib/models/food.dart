@@ -13,6 +13,7 @@ class Food {
   final FoodCategory category;
   final String imageUrl;
   final double rating;
+  final double price;
 
   Food({
     this.id,
@@ -20,6 +21,7 @@ class Food {
     this.category,
     this.imageUrl,
     this.rating,
+    this.price,
   });
 
   factory Food.fromJson(Map<String, dynamic> json) => _$FoodFromJson(json);

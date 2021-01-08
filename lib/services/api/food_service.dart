@@ -2,6 +2,7 @@ import 'package:injectable/injectable.dart';
 import 'package:observable_ish/observable_ish.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../app/utils/list.dart';
 import '../../app/locator.dart';
 import '../../models/food.dart';
 import 'food_category_service.dart';
@@ -25,6 +26,7 @@ class FoodService with ReactiveServiceMixin {
         name: 'Pancake',
         rating: 4.5,
         category: _foodCategoryService.foodCategories[0],
+        price: 35.00,
       ),
       Food(
         id: 2,
@@ -32,6 +34,7 @@ class FoodService with ReactiveServiceMixin {
         name: 'Egg with Lumpia',
         rating: 5.0,
         category: _foodCategoryService.foodCategories[0],
+        price: 35.00,
       ),
       Food(
         id: 3,
@@ -39,6 +42,7 @@ class FoodService with ReactiveServiceMixin {
         name: 'Ambot',
         rating: 4.25,
         category: _foodCategoryService.foodCategories[1],
+        price: 35.00,
       ),
       Food(
         id: 4,
@@ -46,6 +50,7 @@ class FoodService with ReactiveServiceMixin {
         name: 'Wombo Meal',
         rating: 2.5,
         category: _foodCategoryService.foodCategories[1],
+        price: 35.00,
       ),
       Food(
         id: 5,
@@ -53,6 +58,7 @@ class FoodService with ReactiveServiceMixin {
         name: 'Seafood Lang',
         rating: 4.0,
         category: _foodCategoryService.foodCategories[2],
+        price: 35.00,
       ),
       Food(
         id: 6,
@@ -60,6 +66,7 @@ class FoodService with ReactiveServiceMixin {
         name: 'Lami Tanawon',
         rating: 5.0,
         category: _foodCategoryService.foodCategories[2],
+        price: 35.00,
       ),
       Food(
         id: 7,
@@ -67,6 +74,7 @@ class FoodService with ReactiveServiceMixin {
         name: 'Yay Ka',
         rating: 3.5,
         category: _foodCategoryService.foodCategories[3],
+        price: 35.00,
       ),
       Food(
         id: 8,
@@ -74,6 +82,7 @@ class FoodService with ReactiveServiceMixin {
         name: 'Meat Rolls',
         rating: 3.5,
         category: _foodCategoryService.foodCategories[3],
+        price: 35.00,
       ),
       Food(
         id: 9,
@@ -81,6 +90,7 @@ class FoodService with ReactiveServiceMixin {
         name: 'Pizza',
         rating: 2.5,
         category: _foodCategoryService.foodCategories[4],
+        price: 35.00,
       ),
       Food(
         id: 10,
@@ -88,6 +98,7 @@ class FoodService with ReactiveServiceMixin {
         name: 'Pagod na Pizza',
         rating: 1.5,
         category: _foodCategoryService.foodCategories[4],
+        price: 35.00,
       ),
       Food(
         id: 11,
@@ -95,8 +106,11 @@ class FoodService with ReactiveServiceMixin {
         name: 'Pang Diet',
         rating: 4.5,
         category: _foodCategoryService.foodCategories[5],
+        price: 35.00,
       ),
     ];
+
+    _foods.value = shuffle(_foods.value);
 
     listenToReactiveValues([_foods]);
   }
