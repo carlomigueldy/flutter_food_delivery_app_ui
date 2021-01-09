@@ -69,7 +69,7 @@ class RestaurantService extends BaseService<Restaurant>
       ),
       Restaurant(
         id: 4,
-        name: "Jamm Dog's",
+        name: "Jamm's'",
         estimatedTimeOfDelivery: '20 - 30 mins',
         imageUrl: 'assets/restaurants/restaurant_4.jpg',
         saved: false,
